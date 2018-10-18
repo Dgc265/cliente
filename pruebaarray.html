@@ -1,0 +1,44 @@
+<html>
+    <!DOCTYPE html>
+    
+
+    <head> 
+        <title>Array</title>
+        
+    </head>
+    <body>
+        
+        
+             
+           
+            <script type="text/javascript">
+                var frutas = ['Manzana','Banana',25,true];
+                frutas.push('Mango');
+                console.log(frutas);
+
+                var pos = frutas.indexOf('Bananax');
+                console.log(pos);
+                pos=1;
+                var elementoEliminado = frutas.splice(pos,1);
+                console.log(elementoEliminado);
+                console.log(frutas);
+                
+
+                var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+                const result = words.filter(function(word){  console.log(word,word.length) ; if(word.length > 6){return word}}); // sin fat arrow
+                const resultado = words.filter(word => word.length > 6); // con fat arrow;
+
+                console.log(result);
+                console.log(resultado);
+                // expected output: Array ["exuberant", "destruction", "present"]
+                 
+
+
+               
+                   
+        
+        </script>
+        
+    </body>
+</html>

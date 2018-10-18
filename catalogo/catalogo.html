@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Catalogo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/estilo.css" />
+</head>
+<body>
+        <h2>Catalogo</h2>
+    <div id=catalogo class="panel-catalogo">
+       
+        <div onclick="mifuncion(this)" class="panel-catalogo__articulo" id="articulo1">
+            <img class="panel-catalogo__articulo-imagen--tamanyo" src="./imagenes/gaming.jpg">
+            <p>Precio: 500€</p>
+        </div>
+        <div onclick="mifuncion(this)" class="panel-catalogo__articulo" id="articulo2">
+                <img class="panel-catalogo__articulo-imagen--tamanyo" src="./imagenes/chinopc.jpg">
+                <p>Precio: 600€</p>
+        </div>
+        <div onclick="mifuncion(this)" class="panel-catalogo__articulo" id="articulo3">
+                <img class="panel-catalogo__articulo-imagen--tamanyo" src="./imagenes/acer.jpg">
+                <p>Precio: 700€</p>
+        </div>
+        <div onclick="mifuncion(this)" class="panel-catalogo__articulo" id="articulo4">
+                <img class="panel-catalogo__articulo-imagen--tamanyo" src="./imagenes/windows.jpg">
+                <p>Precio: 100€</p>
+        </div>
+        
+            
+       
+    </div>
+    <div id=carrito class="panel-carrito">
+        
+    </div>
+    <script>
+     function mifuncion(item){
+        
+        
+        console.log(item.firstChild.nextSibling);
+        
+        
+        let panel = document.getElementById("carrito");
+        panel.className="panel-catalogo";
+        let carrito = document.createElement("div");
+        carrito.className= "panel-catalogo__articulo";
+        
+        let imagen = document.createElement("img")
+        imagen.className="panel-catalogo__articulo-imagen--tamanyo";
+        imagen.src = item.firstChild.nextSibling.src;
+        let precio = document.createElement("p");
+        let unidades = document.createElement("p");
+        let total = document.createElement("p");
+        let mitexto= document.createTextNode("hola");
+let mitexto2= document.createTextNode("hola");
+let mitexto3= document.createTextNode("hola");
+        
+        carrito.appendChild(imagen);
+        carrito.appendChild(precio);
+        carrito.appendChild(unidades);
+        carrito.appendChild(total);
+        precio.appendChild(mitexto);
+        unidades.appendChild(mitexto2);
+        
+        total.appendChild(mitexto3);    
+        panel.appendChild(carrito);
+          panel.appen2dChild(carrito);
+         panel.appendChild(carrito);
+        
+
+         
+     }
+    </script>
+</body>
+</html>

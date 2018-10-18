@@ -1,0 +1,53 @@
+<html>
+     <!DOCTYPE html>
+    
+
+    <head> 
+        <title>fecha</title>
+        
+    </head>
+    <body>
+        
+        
+             
+           
+            <script type="text/javascript">
+        
+                var f = new Date();
+                var diasemana="";
+                var diames="";
+                switch (f.getDay()){
+                    case 0:
+                        diasemana ="Domingo";
+                        break;
+                    case 1:
+                        diasemana ="Lunes";
+                        break;
+                    case 2:
+                        diasemana ="Martes";
+                        break;
+                    case 3:
+                        diasemana ="Miercoles";
+                        break;
+                    case 4:
+                        diasemana ="Jueves";
+                        break;
+                    case 5:
+                        diasemana ="Viernes";
+                        break;
+                    case 6:
+                        diasemana ="Sabado";
+                        break;
+
+                }
+                document.write("Hoy es "+diasemana+" "+f.getDate()+" de "+f.getMonth()+" de "+f.getFullYear());
+                 
+
+
+               
+                   
+        
+        </script>
+        
+    </body>
+</html>

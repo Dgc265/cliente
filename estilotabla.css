@@ -1,0 +1,17 @@
+.table{
+
+    border:black 1px solid;
+}
+td{
+border: black 1px solid;
+padding: 1px;
+
+}
+.red{
+
+background-color:red;
+}
+.green{
+
+    background-color:green;
+    }

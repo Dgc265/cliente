@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th>D</th>
+        </tr>
+    
+    <script>
+       
+        diasMeses = [31,28,31,30,31,30,31,31,30,31,30,31];
+        let date = new Date();
+        date.setDate(1);
+        date.setMonth(6);
+        let contador=0;
+        let  diacero=date.getDay();
+        console.log(diacero);
+            for(i=-5;i<=date.getDay();i++){
+                if(diacero!=0){
+                    i=2;
+                    diacero=0;
+                    
+                }
+            
+                
+              if(date.getDay()!=1){
+                document.write("<td></td>");
+                contador++;
+                }
+
+            }
+           
+            for(i=1;i<=diasMeses[date.getMonth()];i++){
+            
+            if(contador%7==0){
+                document.write("</tr>");
+            }
+                document.write("<td>"+i+"</td>");
+                contador++;
+            }
+
+    </script>
+    </table>
+</body>
+</html>

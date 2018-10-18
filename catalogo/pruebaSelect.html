@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script >
+         
+            function seleccion(){
+    
+                lista = document.getElementById("alumnos");
+                 console.log(lista.value);
+                 for (i=0;i<lista.length;i++) {
+                    texto=lista.options[i].text;
+                    valor=lista.options[i].value;
+                    seleccionado = lista.options[i].selected
+                    console.log("Texto: "+texto+" valor: "+valor+" Seleccionado: "+seleccionado);
+                    
+                 }
+            }
+
+            function cambia(){
+                lista = document.getElementById("alumnos");
+                lista.options[1].selected=true;
+            }
+            function nuevo(){
+                lista = document.getElementById("alumnos");
+                opcion= document.createElement("option");
+                opcion.text="Silvia Apache";
+                opcion.value="4";
+                opcion.disabled=true;
+                //lista.appendChild(opcion);
+                lista.add(opcion,1);
+               
+            }
+            function borrar() {
+                lista = document.getElementById("alumnos");
+                lista.remove(lista.selectedIndex);
+                lista.length=0;
+                
+            }
+        </script>
+</head>
+<body>
+   <select id="alumnos">
+       <option value="10">pepe perez</option>
+       <option value="8">Ana García</option>
+       <option value="5">Alexandre Sanz</option>
+   </select> 
+   <input type="button" value="seleccion" onclick="seleccion()";>
+   <input type="button" value="cambia" onclick="cambia()";>
+   <input type="button" value="nuevo" onclick="nuevo()";>
+   <input type="button" value="borrar" onclick="borrar()";>
+</body>
+
+</html>

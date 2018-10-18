@@ -1,0 +1,46 @@
+<html>
+     <!DOCTYPE html>
+    
+
+    <head> 
+        <title>numeros primos</title>
+        
+    </head>
+    <body>
+        <h1>Numeros primos</h1>
+        
+             <table>
+           
+            <script type="text/javascript">
+                var  num=prompt("introduzca un numero",1);
+               
+               for(i=num;i>=2;i--){
+                   div=0;
+                  for(j=i;j>=1;j--){
+                    if(i%j==0){
+                        div++;
+
+                    }
+                  
+                  }
+                  if(div>2){
+                    document.write('<tr bgcolor=royalblue>',"<td>"+i,"</td><td> no es primo</td>");
+
+
+                   }else{
+                   document.write('<tr bgcolor=green>',"<td>"+i,"</td><td> si es primo</td>");
+                   
+                   } 
+                   
+
+                  }
+
+
+
+               
+                   
+        
+        </script>
+        </table>
+    </body>
+</html>

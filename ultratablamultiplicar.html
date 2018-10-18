@@ -1,0 +1,59 @@
+<html>
+     <!DOCTYPE html>
+    
+
+    <head> 
+        <title>ULTRA TABLA</title>
+        
+    </head>
+    <body>
+        <h1>ULTRA TABLAS</h1>
+        
+             <table>
+                 <tr>
+     
+            <script type="text/javascript">
+                var  num=prompt("introduzca un numero",1);
+                var  num2=prompt("introduzca un numero",1);
+               if(num>num2){
+                   aux=num;
+                   num=num2;
+                   num2=aux;
+               }
+               for(i=num;i<=num2;i++){
+                   var div;
+                   div++;
+
+                   document.write("<td><table>");
+
+                  for(j=1;j<=10;j++){
+                      resultado=i*j;
+                     document.write("<table>");
+                   
+                        document.write("<tr><td>"+i+"</td><td> x </td><td> "+j+"</td><td> = </td><td>"+resultado+"</td></tr>");
+                            document.write("</table>");
+
+
+                    
+                  
+                  }
+                 
+                 
+                   if(div%2==0){
+
+                     document.write("</table>></td></br>");
+                   }
+
+                  }
+                
+
+
+
+               
+                   
+        
+        </script>
+        </tr>
+        </table>
+    </body>
+</html>

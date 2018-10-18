@@ -1,0 +1,105 @@
+<script type="text/javascript">
+"use strict"
+
+let n=10;
+    console.log(n);
+    
+    for (var i=1;i<=10;i++) {
+        document.write(i);
+        
+        }
+       console.log(i);
+
+function suma(a,b){
+
+    return a+b;
+}
+
+function suma2(a,b){
+    if(b==undefined){
+        return a;
+    }
+    else{
+        return a+b;}
+}
+
+function suma3(){
+    
+    console.log(arguments.length);
+       // return a+b;
+}
+
+let misuma=function suma(a,b){
+
+return a+b;
+;}
+
+function sum(a,b,c,...datos){
+
+    console.log(datos.length);
+    console.log(datos[datos.length-1]);
+}
+
+function sumapordefecto(a,b=10){
+
+    return a+b;
+}
+ 
+
+console.log(suma(1,2)); // Normal
+
+console.log(suma(1));  // falta un parametro
+
+console.log(suma(1,2,3)); // Mas parametros que en definicion
+
+console.log(suma2(1));  // falta un parametrom pero comprueba b
+
+suma3(1,2,3,4,5,6,7,8,9); // va a decir que tiene 9 parametros
+
+suma3(1,2); // va decir que tiene dos parametros
+
+suma3("pepe",true); 
+
+console.log(misuma); // saca el codigo de la funcion
+
+console.log(misuma(5,9));// estas llamando a la funcion y saca la ejecucion de la funcion
+
+sum(1,2,3,4,5,6,"pepe","Alexandre");
+
+console.log(sumapordefecto(1));
+
+function mensaje(){
+    console.log("Hola");
+}
+
+function mensaje2(){
+    console.log("Necesito una mujer");
+}
+
+
+// setInterval(mensaje,2000)// funciones como parametro
+
+// setInterval(function(){console.log("Adios")},2000);
+
+let cadena1 =`cadena de texto`;
+
+let cadena2 = ` linea 1 de la cadena de texto
+                linea2 de la cadena de texto`;
+
+// let cadena3= "linea 1 de la cadena de texto
+               // linea 2 de la cadena de texto"; esto no lo permite las comillas dobles pero si las comillas simples inversas.
+
+
+console.log(cadena1);
+console.log(cadena2);
+
+let f= new Date(2018,8,23);
+
+console.log(f);
+console.log(f.getDate());
+console.log(f.getDay());
+
+
+   
+
+</script>

@@ -1,0 +1,62 @@
+<html>
+<body>
+    <div id="capainicial"></div>
+    <div id="c0">
+        <p id="p0">Parrafo0 en capa 0</p>
+        <p id="p1">Parrafo1 en capa 0</p>
+        <p id="p2">Parrafo2 en capa 0</p>
+
+    </div>
+   
+    <div id="c1">
+    
+    </div>
+    
+    <div id="c2">
+    
+    </div>
+</body>
+<script>
+    
+        capa0=document.getElementById("c0");
+    
+        console.log(capa0);
+        
+        hijos=capa0.childNodes;
+        console.log(hijos[3]);
+        capas= document.getElementsByTagName("div");
+        console.log(capas);
+        for (i=0; i<capas.length;i++) {
+            console.log(capas[i]);
+           alert(capas[i].id);
+                
+            }
+            miparrafo= document.createElement("p");
+            miparrafo.id="p1527";
+            console.log(miparrafo);
+            mitexto= document.createTextNode("Mi texto");
+            console.log(mitexto);
+            miparrafo.appendChild(mitexto);
+            console.log(miparrafo);
+            console.log(miparrafo.nodeValue);
+            
+
+            capaincial= document.getElementById("capainicial");
+            capainicial.appendChild(miparrafo);
+
+            p= document.getElementById("p1");
+            
+            p.setAttribute("align","right");
+            miimagen=document.createElement("img");
+            miimagen.src="panda.jpg";
+
+            capa2= document.getElementById("c2");
+            capa2.appendChild(miimagen);
+            ruta= prompt("dime imagen");
+            document.getElementsByTagName("img")[0].src=ruta;
+
+            p.firstChild.nodeValue="kkkkkkk";
+        
+         
+    </script>
+    </html>

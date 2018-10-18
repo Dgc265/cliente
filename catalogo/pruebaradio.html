@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="scriptradio.js"></script>
+</head>
+<body>
+    <form action="procesa.php" name="formulario" method="GET">
+    Edad:<br>
+    <input type="radio" name="edad" value="<18"> Menor de 18 años.<br>
+    
+    <input type="radio" name="edad" value=">18 y <60" checked>
+    Entre 18 y 60 años.<br>
+    <input type="radio" name="edad" value=">60"> Mayor de 60 años.<br>
+    <input type="button" value="Selección" onClick="seleccio();">
+    </form>
+    <A href="#" onclick="mostrar(); return false">Ver valores</A>
+    </body>
+</html>

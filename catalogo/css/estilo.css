@@ -1,0 +1,26 @@
+.panel-catalogo{
+    border:solid 1px black;
+    width:1100px;
+    height:300px;
+    
+}
+.panel-catalogo__articulo{
+    
+    border: solid 1px black;
+    
+    
+    width:273px;
+    height:100%;
+    float:left;
+}
+.panel-catalogo__articulo-imagen--tamanyo{
+ 
+    padding:10px;
+    width:200px;
+    height:150px;
+
+}
+.panel carrito{
+
+    margin-top:100px;
+}

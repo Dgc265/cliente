@@ -1,0 +1,39 @@
+<html>
+     <!DOCTYPE html>
+    <link rel="stylesheet" type="text/css" href="estilotabla.css">
+
+    <head> 
+        <title>Tabla multiplicar</title>
+        
+    </head>
+    <body>
+        <h1>Tablas multiplicar</h1>
+        <table class="table">
+           
+            <tr>
+             
+            
+            <script type="text/javascript">
+                var  num=prompt("introduzca un numero","1");
+                alert(num);
+               
+                var resultado;
+                for(i=1;i<=10;i++){
+                    resultado=0;
+                    resultado = num*i;
+                    if(resultado%2==0){
+                        document.write('<tr class="green" >',"<td>"+num+"</td><td> x </td><td> "+i+"</td><td> = </td><td>"+resultado+"</td></tr>");
+
+
+                    }else{
+                        document.write('<tr class="red" >',"<td>"+num+"</td><td> x </td><td> "+i+"</td><td> = </td><td>"+resultado+"</td></tr>");
+
+
+                    }
+                   
+        }
+        </script>
+        </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+        let espanya=["madrid","valencia","toledo"];
+        let francia=["paris","lyon","niza"];
+        let portugal= ["lisboa","oporto","braga"];
+        function cambio(){
+            let paises= document.getElementById("paises");
+            ciudades= document.getElementById("ciudades");
+            ciudades.length=0;
+            
+            switch(paises.value){
+                case "espanya":
+                
+                   for(i=0;i<espanya.length;i++){
+                    opcion = document.createElement("option");
+                    opcion.value=espanya[i];
+                    opcion.text=espanya[i];
+                    ciudades.appendChild(opcion);
+                    }
+            break;
+            case "francia":
+                
+                   for(i=0;i<francia.length;i++){
+                    opcion = document.createElement("option");
+                    opcion.value=francia[i];
+                    opcion.text=francia[i];
+                    ciudades.appendChild(opcion);
+                    }
+            break;
+            case "portugal":
+              
+                    for(i=0;i<portugal.length;i++){
+                    opcion = document.createElement("option");
+                    opcion.value=portugal[i];
+                    opcion.text=portugal[i];
+                    ciudades.appendChild(opcion);
+                    }
+            break;
+            }
+           
+        }
+        
+    </script>
+</head>
+<body>
+    <select id="paises" onchange="cambio()">
+        <option value="espanya"  >España</option>
+        <option value="francia" >Francia</option>
+        <option value="portugal" >Portugal</option>
+    </select>
+    <select id="ciudades">
+
+    </select>
+    
+</body>
+</html>
