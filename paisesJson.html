@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script >
+        let paises= [{"nombre":"España","ciudades":["Valencia","Madrid","Barcelona"]
+                },
+                    {"nombre":"Francia","ciudades":["Lion","Paris","niza"]
+                },  
+                    {"nombre":"Portugal","ciudades":["lisboa","oporto","braga"]
+                }
+                ];
+                
+
+                function verPaises(){
+                    let contador=0;
+                    let paisesValue= document.getElementById("paises");
+                    ciudades= document.getElementById("ciudades");
+                    ciudades.length=0;
+                    paises.map(function (n){
+                        
+                    if(n.nombre==paisesValue.value){
+                     n.ciudades.forEach(element => {
+                        
+                    opcion = document.createElement("option");
+                    opcion.value=n.ciudades[contador];
+                    opcion.text=n.ciudades[contador];
+                    ciudades.appendChild(opcion);
+                    contador++;
+                     });
+                  
+                    
+                }
+                        
+                    });
+                }
+    </script>
+</head>
+<body>
+        <select id="paises" onchange="verPaises()">
+                <option value="España"  >España</option>
+                <option value="Francia" >Francia</option>
+                <option value="Portugal" >Portugal</option>
+            </select>
+            <select id="ciudades">
+
+                </select>
+</body>
+</html>
