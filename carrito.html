@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+        function carrito(numero,fecha){
+            this.numero=numero;
+            this.fecha=fecha;
+            this.articulos=[];
+        }
+        function articulo(cod,nom,des,pvp){
+            this.cod=cod;
+            this.nom=nom;
+            this.des=des;
+            this.pvp=pvp;
+        }
+        micarrito= new carrito (25,"22/10/2018");
+         carrito.prototype.anyadirArticulo = function(aticulo){
+             this.articulos.push(articulo);
+         };
+         micarrito.anyadirArticulo(articulo);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
