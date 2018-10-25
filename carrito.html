@@ -5,27 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
     <script>
+        let date = new Date();
         function carrito(numero,fecha){
             this.numero=numero;
             this.fecha=fecha;
             this.articulos=[];
         }
         function articulo(cod,nom,des,pvp){
-            this.cod=cod;
-            this.nom=nom;
-            this.des=des;
-            this.pvp=pvp;
+            this.codigo=cod;
+            this.nombre=nom;
+            this.descripcion=des;
+            this.precio=pvp;
         }
-        micarrito= new carrito (25,"22/10/2018");
-         carrito.prototype.anyadirArticulo = function(aticulo){
+        micarrito = new carrito (25,date.getDate);
+         carrito.prototype.anyadirArticulo = function(articulo){
              this.articulos.push(articulo);
          };
-         micarrito.anyadirArticulo(articulo);
+         
+         carrito.prototype.verCarrito = function (){
+             this.articulos.map(function (n){
+                 
+                 document.write("Codigo: "+n.codigo+"&nbsp&nbsp");
+                 document.write("Nombre: "+n.nombre+"&nbsp&nbsp");
+                 document.write("Decripcion: "+n.descripcion+"&nbsp&nbsp");
+                 document.write("precio: "+n.precio+"&nbsp&nbsp<br>");
+             });
+         }
+         function vercarritod(){
+            micarrito.verCarrito();
+
+         }
+         function anyadircarrito(){
+
+             let articuloselect = document.getElementById("tecnologia");
+             let cadena=articuloselect.value.split("|");
+             let miarticulo = new articulo(cadena[0],cadena[1],cadena[2],cadena[3]);
+             
+             micarrito.anyadirArticulo(miarticulo);
+             
+           
+         }
     </script>
 </head>
 <body>
     
+    <select id="tecnologia">
+        <option value="p1|portatil-asus|protatil gaming ausus|1200">Portatil gaming asus</option>
+        <option value="g3|ps3|ps3 antigua|200">Ps3</option>
+        <option value="t1|Tableta huwaii|tableta china de mala calidad|20">Tableta china de importacion</option>
+        <option value="t3|Tableta samsung|tableta de marca coreana excelente |200">Tableta samsung</option>
+        <option value="r4|raton-asus|raton con dpi 1000-5600 gaming ausus|60">Raton gaming asus</option>
+    
+    </select>
+    <input type="button" onclick="anyadircarrito()" value="Comprar articulo">
+    <input type="button" onclick="vercarritod()" value="Ver carrito">
+
 </body>
 </html>
