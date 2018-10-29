@@ -19,7 +19,7 @@
             this.descripcion=des;
             this.precio=pvp;
         }
-        micarrito = new carrito (25,date.getDate);
+        micarrito = new carrito (25,date);
          carrito.prototype.anyadirArticulo = function(articulo){
              this.articulos.push(articulo);
          };
@@ -32,9 +32,11 @@
                  document.write("Decripcion: "+n.descripcion+"&nbsp&nbsp");
                  document.write("precio: "+n.precio+"&nbsp&nbsp<br>");
              });
+
          }
          function vercarritod(){
             micarrito.verCarrito();
+            document.write(JSON.stringify(micarrito));
 
          }
          function anyadircarrito(){
