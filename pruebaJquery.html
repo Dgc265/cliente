@@ -137,6 +137,39 @@
 
      
        })
+
+            $("#botonpatch").click(function (){
+               alert("pulsado");
+               let data={
+                   
+                   "title":"Clases de Raggueton y flow y flamenquillo"
+                   
+               };
+        $.ajax(
+           { url:"http://localhost:3000/posts/10",
+             
+              type:"PATCH",
+              data:data,
+              dataType: "json",
+              success: function(json){
+                 console.log(json);
+                  alert("Modificado");
+                  
+              },
+             error: function(jqXHR,satus,error){
+                 alert('disculpe su retraso');
+             },
+             complete : function (jqXHR,status){
+               alert("peticion realizada")
+
+             } 
+
+           }
+
+       )
+
+     
+       })
    
    }
    );
@@ -147,6 +180,7 @@
    <button id="filtrar">GET UNO</button> 
    <button id="botonpost">POST</button> 
    <button id="botonput">PUT</button>
+   <button id="botonpatch">PATCH</button>
 </body>
 
 </html>
