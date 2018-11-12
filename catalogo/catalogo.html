@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/estilo.css" />
 </head>
-<body>
+<body id="padre">
         <h2>Catalogo</h2>
     <div id=catalogo class="panel-catalogo">
        
@@ -28,49 +28,166 @@
                 <p>Precio: 100€</p>
         </div>
         
+        
             
        
     </div>
-    <div id=carrito class="panel-carrito">
+    <h3>Carrito</h3>
+    <p id="preciototalcarrito">Precio total carrito: 0€</p>
+    <input type="button" id="botonvaciar" value="vaciar carrito"/>
+    <div id="carrito" class="panel-carrito">
         
     </div>
+    <div id="insertarantes"></div>
     <script>
+       
      function mifuncion(item){
         
-        
-        console.log(item.firstChild.nextSibling);
-        
+        let articuloEsta = document.getElementById(item.id+"-cloned");
+        if(articuloEsta==null){
         
         let panel = document.getElementById("carrito");
+        
         panel.className="panel-catalogo";
         let carrito = document.createElement("div");
         carrito.className= "panel-catalogo__articulo";
+        carrito.id = item.id +"-cloned";
         
         let imagen = document.createElement("img")
         imagen.className="panel-catalogo__articulo-imagen--tamanyo";
         imagen.src = item.firstChild.nextSibling.src;
         let precio = document.createElement("p");
+        precio.id="precio"+item.id;
         let unidades = document.createElement("p");
+        unidades.id="unidades"+item.id;
         let total = document.createElement("p");
-        let mitexto= document.createTextNode("hola");
-let mitexto2= document.createTextNode("hola");
-let mitexto3= document.createTextNode("hola");
+        total.id="total"+item.id;
+        let mitexto= document.createTextNode(item.firstChild.nextSibling.nextSibling.nextSibling.textContent);
+        let mitexto2= document.createTextNode("Unidades: 1");
+        let preciototal=item.firstChild.nextSibling.nextSibling.nextSibling.textContent.split(":");
+        let mitexto3= document.createTextNode("Precio Total:"+preciototal[1]);
+        let borrar = document.createElement("button");
+        let preciototalcarritocortado = preciototalcarrito.textContent.split(":");
+        let preciototalcarritoInt = parseInt(preciototalcarritocortado[1])+parseInt(preciototal[1]);
+        let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:"+preciototalcarritoInt+"€")
         
+        borrar.textContent="borrar unidad";
+        borrar.onclick= function(){
+
+        let unidadesCogidas = document.getElementById("unidades"+item.id);
+         let precioCogido = document.getElementById("precio"+item.id);
+         let totalcogido =  document.getElementById("total"+item.id);
+         let preciototalcarrito = document.getElementById("preciototalcarrito");
+         let unidadesCortadas = unidadesCogidas.textContent.split(":");
+         let preciototalcarritocortado = preciototalcarrito.textContent.split(":");
+         if(parseInt(unidadesCortadas[1])>1){
+            let unidadInt = parseInt(unidadesCortadas[1])-1;
+            let unidadSumada=document.createTextNode("Unidades:"+unidadInt);
+            unidadesCogidas.removeChild(unidadesCogidas.firstChild);
+            unidadesCogidas.appendChild(unidadSumada);
+            let precioCortado = precioCogido.textContent.split(":");
+            let precioInt = parseInt(precioCortado[1])*unidadInt;
+            let totalCalculado=document.createTextNode("Precio Total:"+precioInt+"€");
+            let preciototalcarritoInt = parseInt(preciototalcarritocortado[1])-parseInt(precioCortado[1]);
+            let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:"+preciototalcarritoInt+"€");
+            totalcogido.removeChild(totalcogido.firstChild);
+            totalcogido.appendChild(totalCalculado);
+            preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+            preciototalcarrito.appendChild(preciototalcarritocalculado);
+            }else{
+                let articuloborrar = document.getElementById(item.id+"-cloned");
+                
+            let precioCogido = document.getElementById("precio"+item.id);
+           
+            let precioCortado = precioCogido.textContent.split(":");
+            
+            
+            let preciototalcarritoInt = parseInt(preciototalcarritocortado[1])-parseInt(precioCortado[1]);
+            let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:"+preciototalcarritoInt+"€");
+            
+                preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+                preciototalcarrito.appendChild(preciototalcarritocalculado);
+                articuloborrar.remove();
+         }
+
+        }
+        let borrartodo = document.createElement("button");
+        borrartodo.onclick = function(){
+            let articuloborrar = document.getElementById(item.id+"-cloned");
+            let totalCogido = document.getElementById("total"+item.id);
+            let preciototalcarrito = document.getElementById("preciototalcarrito");
+            let preciototalcarritocortado = preciototalcarrito.textContent.split(":");
+            let totalCortado = totalCogido.textContent.split(":");
+            
+            
+            let preciototalcarritoInt = parseInt(preciototalcarritocortado[1])-parseInt(totalCortado[1]);
+            let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:"+preciototalcarritoInt+"€");
+            
+                preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+                preciototalcarrito.appendChild(preciototalcarritocalculado);
+             articuloborrar.remove();
+        }
+        borrartodo.textContent="borrar todo";
         carrito.appendChild(imagen);
         carrito.appendChild(precio);
         carrito.appendChild(unidades);
         carrito.appendChild(total);
+        carrito.appendChild(borrar);
+        carrito.appendChild(borrartodo)
         precio.appendChild(mitexto);
         unidades.appendChild(mitexto2);
         
         total.appendChild(mitexto3);    
         panel.appendChild(carrito);
-          panel.appen2dChild(carrito);
-         panel.appendChild(carrito);
+        preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+        preciototalcarrito.appendChild(preciototalcarritocalculado);
         
+        }else{
 
+         let unidadesCogidas = document.getElementById("unidades"+item.id);
+         let precioCogido = document.getElementById("precio"+item.id);
+         let totalcogido =  document.getElementById("total"+item.id);
+         let preciototalcarrito = document.getElementById("preciototalcarrito");
+         let unidadesCortadas = unidadesCogidas.textContent.split(":");
+         let unidadInt = parseInt(unidadesCortadas[1])+1;
+         let unidadSumada=document.createTextNode("Unidades:"+unidadInt);
+         unidadesCogidas.removeChild(unidadesCogidas.firstChild);
+         unidadesCogidas.appendChild(unidadSumada);
+         let precioCortado = precioCogido.textContent.split(":");
+         let precioInt = parseInt(precioCortado[1])*unidadInt;
+         let totalCalculado=document.createTextNode("Precio Total:"+precioInt+"€");
+         totalcogido.removeChild(totalcogido.firstChild);
+         totalcogido.appendChild(totalCalculado);
+         let preciototalcarritocortado = preciototalcarrito.textContent.split(":");
+        let preciototalcarritoInt = parseInt(preciototalcarritocortado[1])+parseInt(precioCortado[1]);
+        let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:"+preciototalcarritoInt+"€")
+        preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+        preciototalcarrito.appendChild(preciototalcarritocalculado);
+
+
+        }
+       
+       
+        let botonvaciar = document.getElementById("botonvaciar");
+         botonvaciar.onclick=function vaciarCarrito(){
+           let elemento = document.getElementById("carrito");
+           let elementoinsertar = document.getElementById("insertarantes");
+           let padre = document.getElementById("padre");
+           let preciototalcarritocalculado = document.createTextNode("Precio Total Carrito:0€")
+           preciototalcarrito.removeChild(preciototalcarrito.firstChild);
+           preciototalcarrito.appendChild(preciototalcarritocalculado);
+           let divcarrito = document.createElement("div");
+           divcarrito.id="carrito";
+           divcarrito.className="panel-carrito";
+           
+           elemento.remove();
+           padre.insertBefore(divcarrito,elementoinsertar);
+        };
          
      }
+     
+     
+     
     </script>
 </body>
 </html>
