@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   
+    <script src="jquery-3.3.1.min.js"></script>
+<script>
+   $(document).ready(function(){
+       $("#todos").click(function (){
+        $.ajax(
+           { url:"http://localhost:3000/posts/",
+             
+              type:"GET",
+              dataType: "json",
+              success: function(json){
+                  json.map(function(n){
+                    $('<h1>'+ n.id+'</h1>').appendTo('body');
+                    $('<h1>'+ n.title+'</h1>').appendTo('body');
+                    $('<h1>'+ n.author+'</h1>').appendTo('body');
+                  })
+                  
+                  
+              },
+             error: function(jqXHR,satus,error){
+                 alert('disculpe su retraso');
+             },
+             complete : function (jqXHR,status){
+               alert("peticion realizada")
+
+             } 
+
+           }
+
+       )
+
+     
+       })
+
+           $("#filtrar").click(function (){
+               let numero= prompt("dime el numero a filtrar");
+        $.ajax(
+           { url:"http://localhost:3000/posts/",
+             
+              type:"GET",
+              dataType: "json",
+              data: "id="+numero,
+              success: function(json){
+                  json.map(function(n){
+                    $('<h1>'+ n.id+'</h1>').appendTo('body');
+                    $('<h1>'+ n.title+'</h1>').appendTo('body');
+                    $('<h1>'+ n.author+'</h1>').appendTo('body');
+                  })
+                  
+                  
+              },
+             error: function(jqXHR,satus,error){
+                 alert('disculpe su retraso');
+             },
+             complete : function (jqXHR,status){
+               alert("peticion realizada")
+
+             } 
+
+           }
+
+       )
+
+     
+       })
+
+           $("#botonpost").click(function (){
+               alert("pulsado");
+               let data={
+                   "id":10,
+                   "title":"tu sauce tu saus",
+                   "author":"LOMO"
+               };
+        $.ajax(
+           { url:"http://localhost:3000/posts/",
+             
+              type:"POST",
+              data:data,
+              dataType: "json",
+              success: function(json){
+                 console.log(json);
+                  alert("Insertado");
+                  
+              },
+             error: function(jqXHR,satus,error){
+                 alert('disculpe su retraso');
+             },
+             complete : function (jqXHR,status){
+               alert("peticion realizada")
+
+             } 
+
+           }
+
+       )
+
+     
+       })
+
+              $("#botonput").click(function (){
+               alert("pulsado");
+               let data={
+                   "id":10,
+                   "title":"Clases de Raggueton y flow",
+                   "author":"LOMO y CAÑAELOMO"
+               };
+        $.ajax(
+           { url:"http://localhost:3000/posts/10",
+             
+              type:"PUT",
+              data:data,
+              dataType: "json",
+              success: function(json){
+                 console.log(json);
+                  alert("Modificado");
+                  
+              },
+             error: function(jqXHR,satus,error){
+                 alert('disculpe su retraso');
+             },
+             complete : function (jqXHR,status){
+               alert("peticion realizada")
+
+             } 
+
+           }
+
+       )
+
+     
+       })
+   
+   }
+   );
+</script>
+</head>
+<body>
+   <button id="todos">GET</button> 
+   <button id="filtrar">GET UNO</button> 
+   <button id="botonpost">POST</button> 
+   <button id="botonput">PUT</button>
+</body>
+
+</html>

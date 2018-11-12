@@ -1,9 +1,44 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }, { "id": 2, "title": "php-server", "author": "php" },{ "id": 3, "title": "NodeJS", "author": "NodeCode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "php-server",
+      "author": "php"
+    },
+    {
+      "id": 3,
+      "title": "NodeJS",
+      "author": "NodeCode"
+    },
+    {
+      "id": 4,
+      "title": "Alexandre el amor de mi alma",
+      "author": "David garcia Cabeza"
+    },
+    {
+      "id": 5,
+      "title": "La clave de la felicidad",
+      "author": "Luisillo feliz"
+    },
+    {
+      "title": "Clases de Raggueton y flow y flamenco",
+      "author": "LOMO y CAÑAELOMO",
+      "id": "10"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode"
+  }
 }
