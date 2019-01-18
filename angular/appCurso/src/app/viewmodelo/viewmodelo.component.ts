@@ -17,6 +17,15 @@ export class ViewmodeloComponent implements OnInit {
    {id: 6 , nombre: 'CHIMUELO', apellidos: 'SUELTA A MI CHIMUELO', ciudad: 'BOCA DEL PERRO'}
   ];
   constructor() { }
+  anyadirAlumno() {
+  let id= parseInt(prompt("Dime id"));
+  let nombre = prompt("Dime nombre");
+  let apellido = prompt("Dime apellido");
+  let ciudad = prompt("Dime ciudad");
+  let nuevoAlumno = new Alumno(id,apellido,nombre,ciudad);
+  this.alumnos.push(nuevoAlumno);
+
+   }
 
   ngOnInit() {
   }
