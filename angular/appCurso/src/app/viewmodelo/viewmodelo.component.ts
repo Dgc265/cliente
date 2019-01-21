@@ -6,7 +6,9 @@ import {Alumno} from '../modelos/alumno.modelo';
   styleUrls: ['./viewmodelo.component.css']
 })
 export class ViewmodeloComponent implements OnInit {
-
+ visible = false;
+ vertabla = true;
+  
 
  public alumnos: Array<Alumno> = [
    {id: 1 , nombre: 'David', apellidos: 'Díaz de vivar', ciudad: 'Señor Conquistador de Valencia'},
@@ -17,6 +19,7 @@ export class ViewmodeloComponent implements OnInit {
    {id: 6 , nombre: 'CHIMUELO', apellidos: 'SUELTA A MI CHIMUELO', ciudad: 'BOCA DEL PERRO'}
   ];
   constructor() { }
+  
   anyadirAlumno() {
   let id = parseInt(prompt("Dime id"));
   let nombre = prompt("Dime nombre");
@@ -34,7 +37,6 @@ export class ViewmodeloComponent implements OnInit {
    this.alumnos.splice(index,1);
    }
    modificar() {
-
     
 
    }

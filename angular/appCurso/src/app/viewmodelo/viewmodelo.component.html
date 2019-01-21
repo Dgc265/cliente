@@ -1,5 +1,5 @@
 <button (click)="anyadirAlumno()"type="button" class="btn btn-primary">Añadir Alumno</button>
-<table class="table table-bordered table-striped tabla">
+<table class="table table-bordered table-striped tabla" *ngIf="vertabla">
   <thead>
   <tr class="filters">
   <th>id</th>
@@ -19,7 +19,8 @@
   </tr>
   </tbody>
  </table>
- <form>
+ <div *ngIf="visible">
+ <form name="form">
   <div class="form-group">
     <label for="id">id</label>
     <input type="text" class="form-control" id="id" aria-describedby="id" placeholder="Enter id">
@@ -43,3 +44,4 @@
   <button type="submit" class="btn btn-primary">Guardar</button>
   <button type="submit" class="btn btn-danger">Cancelar</button>
 </form>
+</div>
