@@ -6,7 +6,7 @@ import {Alumno} from '../modelos/alumno.modelo';
   styleUrls: ['./viewmodelo.component.css']
 })
 export class ViewmodeloComponent implements OnInit {
- alumno1 = new Alumno(1, 'David', 'García Cabeza', 'De la terreta');
+
 
  public alumnos: Array<Alumno> = [
    {id: 1 , nombre: 'David', apellidos: 'Díaz de vivar', ciudad: 'Señor Conquistador de Valencia'},
@@ -18,15 +18,26 @@ export class ViewmodeloComponent implements OnInit {
   ];
   constructor() { }
   anyadirAlumno() {
-  let id= parseInt(prompt("Dime id"));
+  let id = parseInt(prompt("Dime id"));
   let nombre = prompt("Dime nombre");
   let apellido = prompt("Dime apellido");
   let ciudad = prompt("Dime ciudad");
-  let nuevoAlumno = new Alumno(id,apellido,nombre,ciudad);
+  let nuevoAlumno = new Alumno(id, apellido, nombre, ciudad);
   this.alumnos.push(nuevoAlumno);
 
    }
+   borrarAlumno(alumno) {
+    console.log(alumno);
+    console.log(alumno.id);
+   let index = this.alumnos.indexOf(alumno);
+   console.log(index);
+   this.alumnos.splice(index,1);
+   }
+   modificar() {
 
+    
+
+   }
   ngOnInit() {
   }
 
